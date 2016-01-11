@@ -14,6 +14,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("res/main.fxml"));
         primaryStage.setTitle("Autonomous Generator");
         primaryStage.setScene(new Scene(root, 950, 500));
+        primaryStage.setMinWidth(750);
+        primaryStage.setMinHeight(400);
         primaryStage.show();
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("res/logo.jpg")));
     }

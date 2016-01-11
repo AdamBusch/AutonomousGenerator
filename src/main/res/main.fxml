@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.input.*?>
 <?import javafx.scene.image.*?>
@@ -47,7 +48,10 @@
                         <Insets left="7.0" />
                      </HBox.margin>
                   </Button>
-                  <Text fx:id="errorMessage" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="1.0" />
+                  <Text fx:id="errorMessage" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="CENTER" wrappingWidth="243.0">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin></Text>
                   <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" HBox.hgrow="ALWAYS" />
                 <Button alignment="CENTER" mnemonicParsing="false" onAction="#help" text="Help">
                      <HBox.margin>
