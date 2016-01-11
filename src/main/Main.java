@@ -15,7 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("Autonomous Generator");
         primaryStage.setScene(new Scene(root, 950, 500));
         primaryStage.show();
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("logo.jpg")));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("res/logo.jpg")));
     }
 
 
