@@ -1,4 +1,4 @@
-package src.parse;
+package main.parse;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;

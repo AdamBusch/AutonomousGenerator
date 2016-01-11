@@ -1,4 +1,4 @@
-package src;
+package main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,8 +7,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
-import src.parse.ParseException;
-import src.parse.Parser;
+import main.parse.ParseException;
+import main.parse.Parser;
 
 import java.net.URL;
 import java.util.ResourceBundle;

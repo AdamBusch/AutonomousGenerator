@@ -1,4 +1,4 @@
-package src.parse;
+package main.parse;
 
 public class ParseException extends Exception{
 
