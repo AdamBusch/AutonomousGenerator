@@ -1,0 +1,92 @@
+.root {
+	-fx-background-color: #F2F2F2;
+}
+
+#toolbar{
+   -fx-background-color: #EDEDED;
+   -fx-border-color: #E3E3E3;
+}
+
+#slideout {
+-fx-background-color: #DEDEDE;
+}
+
+.button {
+	-fx-background-color: #fffe;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-background-radius: 0;
+    -fx-border-width: 1px;
+    -fx-border-color: #D1D1D1;
+}
+
+.button:focused {
+    -fx-border-width: 2px;
+    -fx-border-color: #B9B9B9;
+}
+
+.button:pressed {
+    -fx-background-color: #7595FF;
+}
+
+.button:hover {
+    -fx-background-color: #7595FF;
+}
+
+.menu-button{
+	-fx-background-color: #fffe;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-border-color: #D1D1D1;
+}
+
+.choice-box{
+    -fx-background-color: #fffe;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-border-color: #D1D1D1;
+}
+
+.text-field{
+    -fx-background-color: #fffe;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-border-color: #D1D1D1;
+}
+
+.context-menu {
+	-fx-background-color: #fffd;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-border-color: #D1D1D1;
+}
+
+.menu-item:hover {
+      -fx-background-color: #4D79FF;
+ }
+
+
+#red {
+   -fx-background-color: #FF6E6E;
+}
+
+#process{
+    -fx-background-color: #F0F0F0;
+}
+
+.more {
+    -fx-background-color: skyblue;
+    -fx-border-color: red;
+    -fx-border-width: 3;
+}
+
+#rect{
+
+    -fx-fill:#D1D1D1;
+}
+
+#active{
+    -fx-border-color: #A1A1A1;
+    -fx-padding: 5px;
+}
+
+
