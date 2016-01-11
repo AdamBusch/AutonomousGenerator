@@ -42,7 +42,7 @@ public class Controller implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText("Having issues or have any questions? Contact us at: \nTwitter: @FTC6210\nEmail: ftc6210@gmail.com");
 
-        alert.getDialogPane().getStylesheets().add(this.getClass().getResource("style.css").toExternalForm());
+        alert.getDialogPane().getStylesheets().add(this.getClass().getResource("res/style.css").toExternalForm());
         alert.showAndWait();
     }
 
