@@ -48,10 +48,11 @@
                         <Insets left="7.0" />
                      </HBox.margin>
                   </Button>
-                  <Text fx:id="errorMessage" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="CENTER" wrappingWidth="243.0">
+                  <Label fx:id="errorMessage" ellipsisString="...&quot;" prefHeight="17.0" prefWidth="335.0">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
-                     </HBox.margin></Text>
+                     </HBox.margin>
+                  </Label>
                   <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" HBox.hgrow="ALWAYS" />
                 <Button alignment="CENTER" mnemonicParsing="false" onAction="#help" text="Help">
                      <HBox.margin>

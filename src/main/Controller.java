@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
@@ -16,11 +17,11 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML public TextArea codeArea;
-    @FXML public Text errorMessage;
+    @FXML public Label errorMessage;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        errorMessage.setFill(Paint.valueOf("firebrick"));
+        errorMessage.setTextFill(Paint.valueOf("firebrick"));
     }
 
     public void compile(ActionEvent actionEvent){
