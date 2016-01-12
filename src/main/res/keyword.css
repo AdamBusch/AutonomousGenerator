@@ -1,0 +1,17 @@
+.keyword {
+    -fx-fill: purple;
+    -fx-font-weight: bold;
+}
+.hash {
+    -fx-font-weight: bold;
+}
+.comment {
+	-fx-fill: cadetblue;
+}
+.device {
+	-fx-fill: darkblue;
+
+}
+.command {
+	-fx-fill: darkgreen;
+}

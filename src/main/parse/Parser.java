@@ -1,6 +1,7 @@
 package main.parse;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -10,9 +11,53 @@ public class Parser {
 
         String actions = "";
 
-        Scanner scanner = new Scanner(toParse);
 
+        HashMap<String, String> groups = new HashMap<>();
+        Scanner groupScan = new Scanner(toParse);
         int lineNum = 0;
+        while(groupScan.hasNextLine()){
+            lineNum ++;
+            String line = groupScan.nextLine().trim();
+            if(!line.trim().startsWith("#"))continue;
+            Scanner scan = new Scanner(line);
+            scan.useDelimiter(Pattern.compile("\\s+"));
+            if(!scan.hasNext() || !(line.toLowerCase().startsWith("# group") || line.toLowerCase().startsWith("#group"))) throw new ParseException("Invalid group deceleration! Line: "+lineNum + " \""+line+"\"");
+            scan.next(); // Skip # or #group
+            if(line.toLowerCase().startsWith("# group"))
+                scan.next(); // Skip 'group'
+            if(!scan.hasNext())throw new ParseException("Group deceleration has no name! Line: "+lineNum + " \""+line+"\"");
+            String name = scan.next();
+            String value = "";
+            while (scan.hasNext())
+                value += scan.next() + " ";
+            if(groups.containsKey(name)) throw new ParseException("Group \""+name+"\" already declared! Line: "+lineNum + " \""+line+"\"");
+            groups.put(name,value);
+        }
+
+        String toParseWithGroups = "";
+
+        Scanner preScan = new Scanner(toParse);
+        while (preScan.hasNextLine()){
+            String nextLine = preScan.nextLine();
+            if(nextLine.startsWith("#"))continue;
+
+            Scanner line = new Scanner(nextLine);
+            line.useDelimiter(Pattern.compile("\\s+"));
+            String toAdd = "";
+            while (line.hasNext()){
+                String value = line.next();
+                if(groups.containsKey(value))
+                    value = groups.get(value);
+                toAdd += value + " ";
+            }
+            toParseWithGroups += toAdd + "\n";
+
+        }
+
+        Scanner scanner = new Scanner(toParseWithGroups);
+        //System.out.println(toParseWithGroups);
+
+        lineNum = 0;
         while (scanner.hasNextLine()){
             lineNum ++;
             String linedata = scanner.nextLine();
@@ -119,7 +164,7 @@ public class Parser {
                         time *= 1000;
                 }
                 actions += "\nsleep("+time +");";
-            } else if (!cmd.startsWith("//")){
+            } else if (!(cmd.startsWith("//") || cmd.startsWith("#"))){
                 if(cmd.length() > 7)
                     throw new ParseException("Unexpected command! Line: " + lineNum +"  \""+linedata.substring(0,7)  +"...\"");
                 else throw new ParseException("Unexpected command! Line: " + lineNum +"  \""+linedata  +"\"");

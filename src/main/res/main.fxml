@@ -8,6 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import org.fxmisc.richtext.CodeArea?>
 <SplitPane dividerPositions="0.2" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
    <items>
       <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
@@ -69,7 +70,7 @@
                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                </VBox.margin>
             </HBox>
-            <TextArea fx:id="codeArea" prefHeight="500.0" prefWidth="500.0" promptText="Enter code here" VBox.vgrow="ALWAYS" />
+            <CodeArea fx:id="codeArea" prefHeight="500.0" prefWidth="500.0" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
    </items>
