@@ -39,7 +39,10 @@ public class Parser {
         Scanner preScan = new Scanner(toParse);
         while (preScan.hasNextLine()){
             String nextLine = preScan.nextLine();
-            if(nextLine.startsWith("#"))continue;
+            if(nextLine.startsWith("#")){
+                toParseWithGroups += "\n";
+                continue;
+            }
 
             Scanner line = new Scanner(nextLine);
             line.useDelimiter(Pattern.compile("\\s+"));
@@ -78,7 +81,7 @@ public class Parser {
 
                     if(action.equalsIgnoreCase("position")){
                         if (!line.hasNextInt()) throw new ParseException("Move command has no position! Line: " + lineNum +" \""+linedata +"\"");
-                        actions += "\nhardwareMap.servo.get(\"" + name + "\").setPosition(" + line.nextInt() + ");";
+                        actions += "\nhardwareMap.servo.get(\"" + name + "\").setPosition(" + line.nextInt()/ 180.0 + ");";
 
                     } else if (action.equalsIgnoreCase("direction")){
                         if (!line.hasNext()) throw new ParseException("Direction command has no value! Line: " + lineNum +" \""+linedata +"\"");
@@ -101,7 +104,7 @@ public class Parser {
 
                     if(action.equalsIgnoreCase("speed")){
                         if (!line.hasNextInt()) throw new ParseException("Move command has no speed! Line: " + lineNum +" \""+linedata +"\"");
-                        actions += "\nhardwareMap.motor.get(\"" + name + "\").setSpeed(" + line.nextInt() + ");";
+                        actions += "\nhardwareMap.motor.get(\"" + name + "\").setSpeed(" + line.nextInt()/100.0 + ");";
                     }
 
                     if(action.equalsIgnoreCase("direction")){
@@ -135,13 +138,13 @@ public class Parser {
                         if(!line.hasNextInt()) throw new ParseException(typeClass + " command has no speed! Line: "+ lineNum + " \""+linedata +"\"");
                         int speed = line.nextInt();
                         for(String name : motors){
-                            actions += "\nhardwareMap.motor.get(\"" + name + "\").setSpeed(" + speed + ");";
+                            actions += "\nhardwareMap.motor.get(\"" + name + "\").setSpeed(" + speed/100.0 + ");";
                         }
                     } else if(action.equalsIgnoreCase("position") && type.equalsIgnoreCase("servos")){
                         if(!line.hasNextInt()) throw new ParseException(typeClass + " command has no speed! Line: "+ lineNum + " \""+linedata +"\"");
                         int pos = line.nextInt();
                         for(String name : motors){
-                            actions += "\nhardwareMap.servo.get(\"" + name + "\").setPosition(" + pos + ");";
+                            actions += "\nhardwareMap.servo.get(\"" + name + "\").setPosition(" + pos/180.0 + ");";
                         }
                     } else if (action.equalsIgnoreCase("direction")){
                         if (!line.hasNext()) throw new ParseException("Direction command has no value! Line: " + lineNum +" \""+linedata +"\"");
